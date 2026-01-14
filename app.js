@@ -5,7 +5,7 @@ const path = require("path");
 const session = require("express-session");
 
 const app = express();
-app.use(express.static(path.join(__dirname, "..", "client")));
+// app.use(express.static(path.join(__dirname, "..", "client")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -40,43 +40,43 @@ app.use("/api/candidates",candidateRoutes);
 app.use("/api/votes",voteRoutes);
 app.use("/api/results", resultRoutes);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "index.html"));
+// });
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/results", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "results.html"));
-});
+// app.get("/results", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "results.html"));
+// });
 
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "login.html"));
-});
+// app.get("/login", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "login.html"));
+// });
 
-app.get("/dashboard", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "dashboard.html"));
-});
+// app.get("/dashboard", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "dashboard.html"));
+// });
 
-app.get("/vote", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "vote.html"));
-});
+// app.get("/vote", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "vote.html"));
+// });
 
-app.get("/receipt", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "receipt.html"));
-});
+// app.get("/receipt", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "receipt.html"));
+// });
 
-app.get("/results", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "results.html"));
-});
+// app.get("/results", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client", "results.html"));
+// });
 
-app.get("/admin/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/admin-login.html"));
-});
+// app.get("/admin/login", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/admin-login.html"));
+// });
 
-app.get("/admin/dashboard", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/admin-dashboard.html"));
-});
+// app.get("/admin/dashboard", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/admin-dashboard.html"));
+// });
 
 
 app.listen(PORT, () => {
