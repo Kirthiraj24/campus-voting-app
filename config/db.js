@@ -1,14 +1,14 @@
 const mysql = require("mysql2/promise");
 
-const pool = mysql.createPool(process.env.MYSQL_URL);
+if (!process.env.MYSQL_URL) {
+  console.error("❌ MYSQL_URL is missing");
+  process.exit(1);
+}
 
-pool.getConnection()
-  .then(conn => {
-    console.log("✅ MySQL connected");
-    conn.release();
-  })
-  .catch(err => {
-    console.error("❌ Database connection failed:", err.message);
-  });
+const pool = mysql.createPool({
+  uri: process.env.MYSQL_URL,
+  waitForConnections: true,
+  connectionLimit: 10
+});
 
 module.exports = pool;
