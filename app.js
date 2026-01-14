@@ -44,7 +44,7 @@ app.use("/api/results", resultRoutes);
 //   res.sendFile(path.join(__dirname, "..", "client", "index.html"));
 // });
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000;
 
 // app.get("/results", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "client", "results.html"));
@@ -77,8 +77,6 @@ const PORT = process.env.PORT
 // app.get("/admin/dashboard", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../client/admin-dashboard.html"));
 // });
-
-
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
